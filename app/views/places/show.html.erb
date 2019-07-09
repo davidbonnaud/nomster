@@ -4,12 +4,16 @@
   <br/><br/>
   <p><%= @place.description %></p>
   <p>
-    <% if @place.photos.present? %>
-      <% @place.photos.each do |photo| %>
-        <%= image_tag photo.picture.url %>
-        <%= photo.caption %>
+    <div class="showpictures">
+      <% if @place.photos.present? %>
+        <% @place.photos.each do |photo| %>
+          <div class="photocaption">
+            <%= image_tag photo.picture.url, :class => 'photo' %>
+            <%= photo.caption %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </p>
   <% if @place.latitude.present? && @place.longitude.present? %>
     <script>
