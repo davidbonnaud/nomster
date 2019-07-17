@@ -3,17 +3,56 @@
   <i><%= @place.address %></i>
   <br/><br/>
   <p><%= @place.description %></p>
+  <div class="clear"></div>
   <p>
-    <div class="showpictures">
-      <% if @place.photos.present? %>
-        <% @place.photos.each do |photo| %>
-          <div class="photocaption">
-            <%= image_tag photo.picture.url, :class => 'photo' %>
-            <%= photo.caption %>
+    <% if @place.photos.present? %>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <% for i in 1..(@place.photos.count - 1) %>
+            <li data-target="#carouselExampleIndicators" data-slide-to=i></li>
+          <% end %>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+            <%= image_tag @place.photos.first.picture.url, class: 'd-block img-fluid' %>
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Storefront</h3>
+            </div>
           </div>
+          <% @place.photos.each do |photo| %>
+            <% if photo.picture.url == @place.photos.first.picture.url %>
+            <% else %>
+              <div class="carousel-item">
+                <%= image_tag photo.picture.url, class: 'd-block img-fluid' %>
+                <div class="carousel-caption d-none d-md-block">
+                  <h3><%= photo.caption %></h3>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <!--<div class="showpictures">
+        <% if @place.photos.present? %>
+          <% @place.photos.each do |photo| %>
+            <div class="photocaption">
+              <%= image_tag photo.picture.url, :class => 'photo' %>
+              <%= photo.caption %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>-->
+    <% end %>
   </p>
   <% if @place.latitude.present? && @place.longitude.present? %>
     <script>
