@@ -125,7 +125,7 @@ blockquote p {
 }
 
 .booyah-box .carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
-  max-height: 400px;
-  width: 100%;
-  object-fit: fill;
+  max-height: 600px;
+  max-width: auto;
+  object-fit: cover;
 }
