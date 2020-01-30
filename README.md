@@ -3,9 +3,11 @@ A Yelp clone that integrates with the Google Maps API and includes features like
 
 # Homepage
 Users can create listings for restaurants/businesses which will be listed here.
+
 <img src="nomster homepage.jpg" alt="Flixter Screenshot Homepage">
 
 
 # Restaurant Listing
 Users can leave comments and ratings at the bottom of the listing after logging in.
+
 <img src="nomster restaurant page.png" alt="Flixter Screenshot Homepage">
