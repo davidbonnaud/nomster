@@ -1,4 +1,4 @@
-# Nomster
+# Nomster 
 A Yelp clone that integrates with the Google Maps API and includes features like user comments, star ratings, image uploading, and user authentication. Uses HTML/CSS/Bootstrap for the front-end and Ruby on Rails/PostgreSQL for the back-end. See more here: https://nomster-david-bonnaud.herokuapp.com/
 
 # Homepage 
